@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eel Web Crawler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Web Crawler Application</h1>
+
+        <div class="input-group">
+            <label for="remoteIpInput">Remote Server IP (e.g., 192.168.0.43:8000):</label>
+            <input type="text" id="remoteIpInput" placeholder="e.g., 192.168.0.43" value="192.168.0.43">
+        </div>
+
+        <div class="input-group">
+            <label for="outputDirInput">Output Directory for Crawled Data:</label>
+            <input type="text" id="outputDirInput" placeholder="e.g., ./crawled_data" value="./crawled_data">
+        </div>
+        
+        <div class="input-group">
+            <label for="concurrencyInput">Max Concurrency:</label>
+            <input type="number" id="concurrencyInput" value="8" min="1">
+        </div>
+
+        <div class="input-group">
+            <label for="depthInput">Max Depth:</label>
+            <input type="number" id="depthInput" value="2" min="0">
+        </div>
+
+        <div class="actions">
+            <button id="fetchAndCrawlButton">Fetch URLs and Start Crawl</button>
+        </div>
+
+        <div class="status-section">
+            <h2>Local Machine Status</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Machine Name</th>
+                        <th>Total Storage (GB)</th>
+                        <th>Free Storage (GB)</th>
+                        <th>CPU Usage (%)</th>
+                        <th>Memory Usage (%)</th>
+                        <th>Crawling Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="machineName">N/A</td>
+                        <td id="totalStorage">N/A</td>
+                        <td id="freeStorage">N/A</td>
+                        <td id="cpuUsage">N/A</td>
+                        <td id="memoryUsage">N/A</td>
+                        <td id="crawlingStatus" class="status-idle">Idle</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Remote Server Interaction</h2>
+            <p>Remote Server Message: <span id="remoteServerMessage">N/A</span></p>
+        </div>
+
+        <div class="results-section">
+            <h2>Crawl Process Summary</h2>
+            <pre id="crawlResults">No results yet.</pre>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html> 

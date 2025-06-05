@@ -1,0 +1,278 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to the top, not center */
+    min-height: 100vh; /* Use min-height to allow content to expand */
+    margin: 20px; /* Add some margin around the container */
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px; /* Increased max-width */
+    box-sizing: border-box;
+    margin-top: 20px; /* Push container down from the top */
+}
+
+h1 {
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+h2 {
+    color: #0056b3;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.input-group input[type="text"],
+.input-group input[type="number"] {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input[type="text"]:focus,
+.input-group input[type="number"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    gap: 10px; /* Space between buttons */
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.actions button {
+    flex-grow: 1; /* Allow buttons to grow and take available space */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap; /* Prevent text wrapping inside buttons */
+}
+
+.actions button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.actions button:active {
+    transform: translateY(0);
+}
+
+.actions button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Add styles for table */
+.status-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden; /* Ensures rounded corners apply to children */
+}
+
+.status-section th,
+.status-section td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.status-section th {
+    background-color: #f8f9fa;
+    color: #555;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.status-section tr:last-child td {
+    border-bottom: none;
+}
+
+.status-section tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+.status-section td {
+    color: #333;
+}
+
+/* Align text content within table cells to the left for better readability */
+.status-section td:first-child {
+    font-weight: 500;
+}
+
+/* Ensure remote server message is styled nicely */
+.status-section p {
+    margin-top: 15px; /* Add some space above the message */
+    font-size: 1.1em;
+    display: flex;
+    justify-content: space-between; /* Distribute status labels and values */
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.status-section p:last-child {
+    border-bottom: none;
+}
+
+.status-section span {
+    font-weight: 600;
+}
+
+.status-idle {
+    color: #28a745; /* Green for idle */
+}
+
+.status-processing {
+    color: #ffc107; /* Orange for processing */
+}
+
+.status-success {
+    color: #28a745; /* Green for success */
+}
+
+.status-error {
+    color: #dc3545; /* Red for error */
+}
+
+.status-skipped {
+    color: #6c757d; /* Grey for skipped */
+}
+
+.results-section pre {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    overflow-x: auto;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.9em;
+    max-height: 400px; /* Limit height for long results */
+    white-space: pre-wrap; /* Wrap text within pre */
+    word-wrap: break-word;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    .actions button {
+        font-size: 0.9em;
+        padding: 10px 15px;
+    }
+
+    .status-section table, .status-section thead, .status-section tbody, .status-section th, .status-section td, .status-section tr {
+        display: block; /* Make table responsive */
+    }
+
+    .status-section thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .status-section tr {
+        margin-bottom: 15px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .status-section td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: right; /* Align value to right */
+    }
+
+    .status-section td:last-child {
+        border-bottom: none;
+    }
+
+    .status-section td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+        color: #555;
+        text-align: left;
+    }
+
+    .status-section p {
+        flex-direction: column; /* Stack status on small screens */
+        align-items: flex-start;
+    }
+
+    .status-section span {
+        margin-top: 5px; /* Add space between label and value */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    .actions button {
+        flex-basis: 100%; /* Full width buttons on very small screens */
+    }
+} 

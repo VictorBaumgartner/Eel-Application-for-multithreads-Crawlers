@@ -1,0 +1,4 @@
+eel
+aiohttp
+crawl4ai
+psutil 
